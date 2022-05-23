@@ -1,25 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Initiate Whatsapp chat</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-  </head>
+  <title>Initiate Whatsapp chat</title>
 
-  <body class="text-center">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+  <script>
+    function validateAndSend() {
+      var number = document.getElementById('inputNumber').value
 
-      <main role="main" class="inner cover">
-        <p>Foobar</p>
-      </main>
+      number = number.replaceAll(/\s/g, '')
+      number = number.replaceAll(/\+/g, '')
 
-  </body>
+      if (number.match(/\d+/)) {
+        window.location = 'https://wa.me/' + number
+      } else {
+        alert("The number can only contain numbers, duh!")
+      }
+    }
+  </script>
+
+</head>
+<body class="text-center">
+
+<form class="form-signin">
+  <h1 class="h3 mb-3 font-weight-normal">Please enter the phone number</h1>
+  <p>with the country code, f.e. 44123123123</p>
+  <label for="inputNumber" class="sr-only">Phone number</label>
+  <input id="inputNumber" class="form-control" placeholder="Phone number" required autofocus>
+  <button class="btn btn-lg btn-primary btn-block" onclick="validateAndSend()">Open chat</button>
+</form>
+
+</body>
 </html>
