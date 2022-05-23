@@ -23,7 +23,8 @@
       number = number.replaceAll(/\+/g, '')
 
       if (number.match(/\d+/)) {
-        window.location = 'https://wa.me/' + number
+        var url = 'https://wa.me/' + number
+        window.open(url, '_blank').focus();
       } else {
         alert("The number can only contain numbers, duh!")
       }
